@@ -52,11 +52,13 @@ public class ApiUtil {
 
     public static URL buildUrl(String title, String author, String publisher, String isbn) {
         URL url = null;
+
         StringBuilder stringBuilder = new StringBuilder();
         if (!title.isEmpty()) stringBuilder.append(TITLE + title + "+");
         if (!author.isEmpty()) stringBuilder.append(AUTHOR + author + "+");
         if (!publisher.isEmpty()) stringBuilder.append(PUBLISHER + publisher + "+");
-        if (!isbn.isEmpty()) stringBuilder.append(ISBN + isbn);
+        if (!isbn.isEmpty()) stringBuilder.append(ISBN + isbn + "+");
+        stringBuilder.setLength(stringBuilder.length() - 1);
 
         String query = stringBuilder.toString();
 
@@ -68,7 +70,7 @@ public class ApiUtil {
         try {
             url = new URL(uri.toString());
         } catch (Exception e) {
-            Log.d("Error", e.getMessage());
+            e.printStackTrace();
         }
 
         return url;

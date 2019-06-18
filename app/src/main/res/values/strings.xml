@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BookListActivity</string>
+    <string name="app_name">Books</string>
     <string name="error_text">Error loading data</string>
     <string name="book_title">Book Title</string>
     <string name="authors">Authors</string>

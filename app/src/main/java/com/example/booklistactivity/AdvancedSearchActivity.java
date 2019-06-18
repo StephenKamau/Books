@@ -34,26 +34,28 @@ public class AdvancedSearchActivity extends AppCompatActivity {
                 String isbn = etISBN.getText().toString().trim();
 
                 if (title.isEmpty() && author.isEmpty() && pub.isEmpty() && isbn.isEmpty()) {
-                    Snackbar.make(v, R.string.empty_search_data, Snackbar.LENGTH_LONG);
+                    Snackbar.make(v, R.string.empty_search_data, Snackbar.LENGTH_LONG).show();
                 } else {
+
                     URL url = ApiUtil.buildUrl(title, author, pub, isbn);
+                    String stringUrl = url.toString();
 
                     //Shared preferences
                     Context context = getApplicationContext();
                     int position = SharedP.getPreferencesInt(context, SharedP.POSITION);
-                    if(position ==0 || position==5){
+                    if (position == 0 || position == 5) {
                         position = 1;
-                    }else {
+                    } else {
                         position++;
                     }
 
-                    String key = SharedP.QUERY+position;
-                    String value =title+","+author+","+pub+","+isbn;
-                    SharedP.setPreferenceString(context,key,value);
-                    SharedP.setPreferenceInt(context,SharedP.POSITION,position);
+                    String key = SharedP.QUERY + String.valueOf(position);
+                    String value = title + "," + author + "," + pub + "," + isbn;
+                    SharedP.setPreferenceString(context, key, value);
+                    SharedP.setPreferenceInt(context, SharedP.POSITION, position);
 
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    intent.putExtra("QUERY", url);
+                    intent.putExtra("QUERY", stringUrl);
                     startActivity(intent);
                 }
             }

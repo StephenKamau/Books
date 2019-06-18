@@ -37,9 +37,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         MenuItem recentMenu;
 
-        //for (int i = 0; i <= itemNum; i++) {
-            //recentMenu = menu.add(Menu.NONE, i, Menu.NONE, recentList.get(i));
-        //}
+        for (int i = 0; i < itemNum; i++) {
+            recentMenu = menu.add(Menu.NONE, i, Menu.NONE, recentList.get(i));
+        }
 
         return true;
     }
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 return true;
             default:
 
-                /*int position = item.getItemId() + 1;
+                int position = item.getItemId() + 1;
                 String preferenceName = SharedP.QUERY + String.valueOf(position);
                 String query = SharedP.getPreferencesString(getApplicationContext(), preferenceName);
                 String[] prefParams = query.split("\\,");
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                         (queryParams[3] == null ? "" : queryParams[3]));
 
                 new BooksQueryTask().execute(bookUrl);
-                */
+
                 return super.onOptionsItemSelected(item);
         }
     }
@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             if (url == null || url.isEmpty()) {
                 bookUrl = ApiUtil.buildUrl("flower");
             } else {
-                bookUrl = ApiUtil.buildUrl(url);
+                bookUrl = new URL(url);
             }
             new BooksQueryTask().execute(bookUrl);
         } catch (Exception e) {
