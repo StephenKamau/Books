@@ -29,7 +29,7 @@
                 android:layout_marginEnd="8dp"
                 android:text="@{Book.title}"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/colorAccent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -41,7 +41,7 @@
                 android:layout_marginTop="8dp"
                 android:text="@{Book.subTitle}"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/colorAccent"
                 app:layout_constraintEnd_toEndOf="@+id/tvTitle"
                 app:layout_constraintStart_toStartOf="@+id/tvTitle"
                 app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
@@ -53,7 +53,8 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="36dp"
                 android:text="@{Book.authors}"
-                android:textColor="@color/colorAccent"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/lightGrey"
                 app:layout_constraintEnd_toEndOf="@+id/tvSub"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/imageView2"
@@ -66,10 +67,10 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:contentDescription="@string/image_description"
-                android:scaleType="centerCrop"
+                android:imageUrl="@{Book.thumbnail}"
+                android:scaleType="fitCenter"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvSub"
-                android:imageUrl="@{Book.thumbnail}" />
+                app:layout_constraintTop_toBottomOf="@+id/tvSub" />
 
             <TextView
                 android:id="@+id/tvPub"
