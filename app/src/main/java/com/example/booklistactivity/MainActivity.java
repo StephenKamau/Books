@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
             if (result == null) {
                 mBooksView.setVisibility(View.INVISIBLE);
-                mErrorText.setVisibility(View.INVISIBLE);
+                mErrorText.setVisibility(View.VISIBLE);
             } else {
                 mErrorText.setVisibility(View.INVISIBLE);
                 mBooksView.setVisibility(View.VISIBLE);
